@@ -11,5 +11,5 @@ OUTPUT_DIR="path/to/output/directory"  # Replace with your output path
 for file in "$INPUT_DIR"/*.fastq
 do
   echo "Hard-trimming $file to 120bp from 3' end..."
-  trim_galore --hardtrim5 120 "$file" -o "$OUTPUT_DIR"
+  trim_galore --paired --hardtrim5 120 "$file" -o "$OUTPUT_DIR"
 done
