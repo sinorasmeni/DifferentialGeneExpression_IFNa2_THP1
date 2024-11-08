@@ -1,1 +1,15 @@
+#!/bin/bash
 
+# TrimGalore script to hard-trim 3' end of reads to 120bp
+
+# Define the directory containing the FASTQ files
+INPUT_DIR="path/to/your/fastq/files"   # Replace with your directory path
+# Define the output directory for the trimmed reads
+OUTPUT_DIR="path/to/output/directory"  # Replace with your output path
+
+# Loop through each FASTQ file in the input directory and run TrimGalore
+for file in "$INPUT_DIR"/*.fastq
+do
+  echo "Hard-trimming $file to 120bp from 3' end..."
+  trim_galore --hardtrim5 120 "$file" -o "$OUTPUT_DIR"
+done
